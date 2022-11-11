@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <script>
+            window.addEventListener(
+              "scroll",
+              () => {
+                document.body.style.setProperty(
+                  "--scroll",
+                  window.pageYOffset / (document.body.offsetHeight - window.innerHeight)
+                );
+              },
+              false
+            );
+          </script>
+          <style>
+            .santa {
+            motion-path: path("M 0 50 Q 0 50 700 50 Q 700 50 700 350 Q 700 350 0 350 C 0 350 0 500 0 500 C 0 500 700 500 700 500 C 700 500 700 700 700 700 L 0 700 L 0 900 ");
+            offset-path: path("M 0 50 Q 0 50 700 50 Q 700 50 700 350 Q 700 350 0 350 C 0 350 0 500 0 500 C 0 500 700 500 700 500 C 700 500 700 700 700 700 L 0 700 L 0 900 ");
+      
+            motion-rotation: reverse;
+            animation: move-santa 1s linear infinite;
+            animation-play-state: paused;
+            animation-delay: calc(var(--scroll) * -1s);
+      
+            animation-iteration-count: 1;
+            animation-fill-mode: both;
+          }
+          @keyframes move-santa {
+            100% { 
+              motion-offset: 100%;
+              offset-distance: 100%;
+            }
+          }
+      
+          .santa {
+            width: 128px;
+            height: 128px;
+            background: url("http://d3m889aznlr23d.cloudfront.net/img/events/458568141/assets/cc9fd0f6.santaclaus.png") no-repeat;
+            background-size: cover;
+            position: fixed;
+            left: 10%;
+            top: 50px;
+          }
+
+            body {
+                min-height: 1500vh;
+            }
+          </style>
+    </head>
+    <body>
+        <div class="santa"></div> 
+    </body>
+</html>
